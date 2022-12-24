@@ -85,7 +85,6 @@ function handleTweetBtnClick(){
 }
 
 // Tweet Comment section handler
-// Stretch goal 1
 function handleTweetComment(commentId){
     let commentInput = document.getElementById(`comment-text-${commentId}`).value
     if(commentInput){
@@ -103,12 +102,12 @@ function handleTweetComment(commentId){
 }
 
 // User Tweet Delete handler
-// stretch goal 2
 function handleDeleteTweet(tweetId){
     let targetTweet = tweetsData.filter(function(tweet){
         return tweet.uuid === tweetId
     })[0]
-    tweetsData.shift(tweetsData.indexOf(targetTweet,1))
+    let targetTweetIndex = tweetsData.indexOf(targetTweet)
+    tweetsData.splice(targetTweetIndex,1)
     render()
 }
 
